@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Depends
 from core.models import Task
 from .deps import get_orchestrator
+from .config import settings
 
 router = APIRouter()
 
@@ -16,4 +17,9 @@ async def run_task(task: Task, orchestrator=Depends(get_orchestrator)):
 
 @router.get("/health")
 async def health():
-    return {"status": "ok"}
+    return {
+        "status": "ok",
+        "version": settings.app_version,
+        "app": settings.app_name,
+        "debug": settings.debug
+    }

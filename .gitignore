@@ -37,10 +37,29 @@ env/
 *~
 .DS_Store
 
-# Environment
+# Environment - SENSIBLE FILES ⚠️
 .env
 .env.local
 .env.*.local
+.env.*
+*.key
+*.pem
+private_key*
+credentials*
+
+# Secrets and API Keys ⚠️
+secrets/
+.secrets
+*_secret*
+*_private*
+API_KEY*
+DATABASE_URL*
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+*.dump
 
 # Testing
 .pytest_cache/
@@ -50,3 +69,13 @@ htmlcov/
 # Logs
 *.log
 logs/
+
+# API Artifacts
+api.log
+*.pid
+
+# OS System files
+Thumbs.db
+._*
+.AppleDouble
+.LSOverride

@@ -1,0 +1,26 @@
+[Unit]
+Description=Antigravity Lab API Server
+Documentation=https://github.com/raulmad6600/antigravity-lab
+After=network.target
+
+[Service]
+Type=simple
+# Cambiar estos valores según tu sistema:
+# User=smartlab
+# WorkingDirectory=/Users/smartlab/antigravity-lab
+# ExecStart=/Users/smartlab/antigravity-lab/venv/bin/python /Users/smartlab/antigravity-lab/run.py
+
+Restart=always
+RestartSec=10
+StandardOutput=append:/var/log/antigravity/api.log
+StandardError=append:/var/log/antigravity/api-error.log
+
+# Limitar recursos (opcional)
+MemoryLimit=1G
+CPUQuota=80%
+
+# Reiniciar al boot
+RemainAfterExit=no
+
+[Install]
+WantedBy=multi-user.target
