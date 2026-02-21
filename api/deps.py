@@ -4,5 +4,8 @@ from .config import settings
 
 
 def get_orchestrator():
-    llm = OllamaAdapter(model=settings.ollama_model)
+    llm = OllamaAdapter(
+        model=settings.ollama_model,
+        base_url=settings.ollama_base_url
+    )
     return Orchestrator(llm)

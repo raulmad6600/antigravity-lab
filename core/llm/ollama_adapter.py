@@ -3,9 +3,9 @@ from .base import BaseLLM
 
 
 class OllamaAdapter(BaseLLM):
-    def __init__(self, model: str = "llama3"):
+    def __init__(self, model: str = "llama3", base_url: str = "http://localhost:11434"):
         self.model = model
-        self.base_url = "http://localhost:11434"
+        self.base_url = base_url
 
     async def generate(self, prompt: str) -> str:
         async with httpx.AsyncClient() as client:
