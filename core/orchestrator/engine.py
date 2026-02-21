@@ -12,7 +12,12 @@ class Orchestrator:
         self.reviewer = ReviewerAgent(llm)
 
     async def run(self, task: Task, max_iterations: int = 3):
-        context = AgentContext(task=task, intermediate={})
+        context_data = {
+            "task": task,
+            "intermediate": {},
+            "memory": {}
+        }
+        context = AgentContext(**context_data)
 
         # Planner
         plan_result = await self.planner.run(context)

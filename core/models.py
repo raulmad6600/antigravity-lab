@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from typing import Optional, Dict, Any
 
 
@@ -8,6 +8,8 @@ class Task(BaseModel):
 
 
 class AgentContext(BaseModel):
+    model_config = ConfigDict(arbitrary_types_allowed=True)
+    
     task: Task
     memory: Optional[Dict[str, Any]] = None
     intermediate: Optional[Dict[str, Any]] = None
